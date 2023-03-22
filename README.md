@@ -1,2 +1,2 @@
-# Trigam-211
+# Trijam-211
 Practice for upcoming Trijam 212
