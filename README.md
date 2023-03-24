@@ -1,2 +1,2 @@
 # Sawblader
-Trijam 212
+Game Jam submission for Trijam 212
