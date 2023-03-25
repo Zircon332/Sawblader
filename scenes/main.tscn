@@ -97,6 +97,7 @@ theme = ExtResource( 11 )
 text = "0"
 
 [node name="Strength" type="Panel" parent="UI/HUD"]
+visible = false
 margin_left = -89.0
 margin_top = 442.0
 margin_right = 125.0
