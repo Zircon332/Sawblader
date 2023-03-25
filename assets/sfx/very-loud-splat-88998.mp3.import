@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/very-loud-splat-88998.mp3-a3d406b50c01ced39a7749d856e11342.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/very-loud-splat-88998.mp3"
+dest_files=[ "res://.import/very-loud-splat-88998.mp3-a3d406b50c01ced39a7749d856e11342.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

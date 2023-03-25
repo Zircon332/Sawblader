@@ -7,6 +7,9 @@ onready var spawner = $Spawner
 onready var _camera = $ShakableCamera
 onready var _freeze_timer = $FreezeTimer
 onready var _player = $Player
+onready var _audio_metal = $AudioStreamPlayer2D
+onready var _audio_freeze = $AudioStreamPlayer2D2
+onready var _audio_splat = $AudioStreamPlayer2D3
 
 var game_state = GAME_STATES.START
 var time_elapsed = 0
@@ -73,10 +76,12 @@ func _on_Spawner_spawned(entity):
 
 func _on_Slime_dead():
 	_camera.shake(3)
+	_audio_splat.play()
 
 
 func _on_Saw_hit(strength):
 	_camera.shake(min(float(strength) / 100, 100))
+	_audio_metal.play()
 	
 	if strength < _player.max_strength * 0.67:
 		return
@@ -91,6 +96,8 @@ func _on_Saw_hit(strength):
 	
 	_freeze_timer.start()
 	_frozen = true
+	
+	_audio_freeze.play()
 
 
 func _on_FreezeTimer_timeout():
