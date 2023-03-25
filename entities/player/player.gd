@@ -17,6 +17,7 @@ var _state = State.NORMAL
 var _strength = 0
 
 onready var _sprite = $AnimatedSprite
+onready var _hitbox = $HitBox
 
 
 func _physics_process(delta):
@@ -70,9 +71,9 @@ func _handle_swing_input():
 		_sprite.stop()
 	elif Input.is_action_just_released("swing"):
 		_state = State.SWING
+		_hitbox.monitoring = true
 		_sprite.play("swing")
 		emit_signal("swung", _strength)
-		
 
 
 func _handle_pre_swing():
@@ -86,11 +87,18 @@ func _handle_pre_swing():
 
 func _look_at_mouse():
 	var mouse = get_viewport().get_mouse_position()
-	_sprite.rotation = global_position.direction_to(mouse).angle() + PI / 2
+	var rot = global_position.direction_to(mouse).angle() + PI / 2
+	_sprite.rotation = rot
+	_hitbox.rotation = rot
 
 
 func _on_AnimatedSprite_animation_finished():
 	match _sprite.animation:
 		"swing":
+			_hitbox.monitoring = false
 			_sprite.play("run")
 			_state = State.NORMAL
+
+
+func _on_HitBox_body_entered(body):
+	print(body)
