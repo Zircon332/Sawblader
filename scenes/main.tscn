@@ -63,6 +63,7 @@ rect_min_size = Vector2( 0, 20 )
 text = "LMB to swing"
 
 [node name="HUD" type="Control" parent="UI"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -20.0

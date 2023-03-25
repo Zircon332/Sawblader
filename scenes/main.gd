@@ -15,6 +15,11 @@ var score = 0
 var _frozen = false
 
 
+func _ready():
+	$UI/StartScreen.visible = true
+	$UI/HUD.visible = false
+
+
 func start_game():
 	if game_state != GAME_STATES.PLAY:
 		game_state = GAME_STATES.PLAY
