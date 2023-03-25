@@ -15,7 +15,7 @@ const BloodScene = preload("res://particles/blood_radial.tscn")
 
 export(int) var speed = 200
 export(int) var strength_increase_rate = 5000
-export(int) var max_strength = 10000
+export(int) var max_strength = 9999
 
 var _velocity = Vector2()
 var _state = State.NORMAL
