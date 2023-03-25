@@ -16,6 +16,7 @@ func _physics_process(delta):
 	
 	move_and_slide(velocity)
 	bounce()
+	kill_enemy()
 
 
 func calculate_friction():
@@ -32,3 +33,10 @@ func bounce():
 
 func hit(strength, angle):
 	velocity = Vector2.UP.rotated(angle) * strength * 10
+
+
+func kill_enemy():
+	var areas = $Area2D.get_overlapping_areas()
+	for area in areas:
+		if area.is_in_group('enemy'):
+			area.die()

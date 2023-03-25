@@ -28,3 +28,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_VisibilityNotifier2D_viewport_exited(viewport):
 	queue_free()
+
+
+func die():
+	queue_free()
