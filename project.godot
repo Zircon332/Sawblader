@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Camera2D",
+"class": "ShakableCamera",
+"language": "GDScript",
+"path": "res://misc/shakable_camera.gd"
+} ]
+_global_script_class_icons={
+"ShakableCamera": ""
+}
+
 [application]
 
 config/name="Sawblader"
