@@ -17,6 +17,7 @@ var _velocity = Vector2()
 var _state = State.NORMAL
 var _strength = 0
 
+onready var world = get_viewport().get_node("Main")
 onready var _sprite = $AnimatedSprite
 onready var _hitbox = $HitBox
 

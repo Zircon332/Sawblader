@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://spawner/spawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main.gd" type="Script" id=2]
-[ext_resource path="res://entities/slime/slime.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/saw/saw.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/wall/wall.tscn" type="PackedScene" id=6]
@@ -71,24 +70,21 @@ margin_bottom = 27.0
 text = "00:00"
 
 [node name="Score" type="Label" parent="UI/HUD"]
-margin_left = 448.0
-margin_top = 13.0
-margin_right = 484.0
-margin_bottom = 27.0
+margin_left = 451.0
+margin_top = 12.0
+margin_right = 487.0
+margin_bottom = 26.0
 text = "0"
 
 [node name="Spawner" parent="." instance=ExtResource( 1 )]
 position = Vector2( 73.1666, 47.4188 )
 scale = Vector2( 0.817454, 0.764396 )
 
-[node name="Slime" parent="." instance=ExtResource( 3 )]
-position = Vector2( 701, 311 )
-
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 291, 307 )
+position = Vector2( 282, 285 )
 
 [node name="Saw" parent="." instance=ExtResource( 5 )]
-position = Vector2( 577, 445 )
+position = Vector2( 655, 267 )
 
 [node name="Walls" type="Node2D" parent="."]
 

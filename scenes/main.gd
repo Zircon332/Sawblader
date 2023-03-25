@@ -6,17 +6,15 @@ enum GAME_STATES {START, PLAY, END}
 onready var spawner = $Spawner
 
 var game_state = GAME_STATES.START
-var time_elapsed = 60
+var time_elapsed = 0
 var score = 0
 
 
-func _ready():
-	start_game()
-
-
 func start_game():
-	game_state = GAME_STATES.PLAY
-	spawner.start_spawn()
+	if game_state != GAME_STATES.PLAY:
+		game_state = GAME_STATES.PLAY
+		spawner.start_spawn()
+		$UI/StartScreen.visible = false
 
 
 func _physics_process(delta):
