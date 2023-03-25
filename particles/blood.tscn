@@ -17,7 +17,7 @@ damping = 4000.0
 damping_random = 0.51
 scale = 0.01
 scale_random = 0.25
-color = Color( 0.909804, 0.172549, 0.4, 1 )
+color = Color( 0.658824, 0.313726, 0.419608, 0.454902 )
 
 [node name="Blood" type="Particles2D"]
 z_index = -1
