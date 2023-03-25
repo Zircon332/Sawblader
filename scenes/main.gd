@@ -60,6 +60,7 @@ func _on_Player_dead():
 	_camera.shake(50)
 	game_state = GAME_STATES.END
 	$UI/EndScreen.visible = true
+	$Saw.queue_free()
 
 
 func _on_Saw_bounced():

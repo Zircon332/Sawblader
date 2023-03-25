@@ -122,22 +122,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -61.0
-margin_top = -52.0
-margin_right = 61.0
-margin_bottom = -34.0
+margin_left = -92.0
+margin_top = -37.0
+margin_right = 93.0
+margin_bottom = -6.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "GAME OVER"
+fit_content_height = true
 scroll_active = false
 
 [node name="Text4" type="RichTextLabel" parent="UI/EndScreen"]
-margin_left = 414.0
-margin_top = 235.0
-margin_right = 524.0
-margin_bottom = 255.0
+margin_left = 358.0
+margin_top = 285.0
+margin_right = 602.0
+margin_bottom = 316.0
 rect_min_size = Vector2( 0, 20 )
 text = "LMB to retry"
+fit_content_height = true
 
 [node name="Spawner" parent="." instance=ExtResource( 1 )]
 position = Vector2( 73.1666, 47.4188 )
