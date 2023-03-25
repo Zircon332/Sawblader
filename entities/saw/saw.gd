@@ -16,7 +16,6 @@ func _physics_process(delta):
 	
 	move_and_slide(velocity)
 	bounce()
-	
 
 
 func calculate_friction():
@@ -29,3 +28,7 @@ func bounce():
 		var collision = get_slide_collision(0)
 		if collision != null:
 			velocity = velocity.bounce(collision.normal)
+
+
+func hit(strength, angle):
+	velocity = Vector2.UP.rotated(angle) * strength * 10

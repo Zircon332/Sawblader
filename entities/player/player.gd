@@ -101,4 +101,4 @@ func _on_AnimatedSprite_animation_finished():
 
 
 func _on_HitBox_body_entered(body):
-	print(body)
+	body.hit(_strength, _sprite.rotation)
