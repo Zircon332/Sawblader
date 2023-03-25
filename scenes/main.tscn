@@ -40,3 +40,34 @@ scale = Vector2( -120.19, -17.5083 )
 [node name="Wall4" parent="Walls" instance=ExtResource( 6 )]
 position = Vector2( 542, 715 )
 scale = Vector2( -87.51, -17.5083 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StartScreen" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer/StartScreen"]
+margin_left = 32.0
+margin_top = 33.0
+margin_right = 106.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Sawblader"
+scroll_active = false
+
+[node name="Text1" type="RichTextLabel" parent="CanvasLayer/StartScreen"]
+margin_left = 50.0
+margin_top = 434.0
+margin_right = 153.0
+margin_bottom = 454.0
+text = "WASD to move"
+
+[node name="Text2" type="RichTextLabel" parent="CanvasLayer/StartScreen"]
+margin_left = 49.0
+margin_top = 457.0
+margin_right = 159.0
+margin_bottom = 477.0
+rect_min_size = Vector2( 0, 20 )
+text = "LMB to swing"
