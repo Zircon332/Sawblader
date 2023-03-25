@@ -1,6 +1,8 @@
 extends Area2D
 
 
+signal dead
+
 const BloodParticles = preload("res://particles/blood.tscn")
 
 export(int) var speed := 100
@@ -42,6 +44,7 @@ func die(dir):
 	blood.global_position = global_position
 	blood.rotation = dir.angle()
 	world.add_child(blood)
+	emit_signal("dead")
 	queue_free()
 
 

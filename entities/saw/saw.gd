@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 
+signal bounced
+
 var _friction = 0.01
 
 var rotation_speed = 2
@@ -32,10 +34,11 @@ func bounce():
 		var collision = get_slide_collision(0)
 		if collision != null:
 			velocity = velocity.bounce(collision.normal)
+			emit_signal("bounced")
 
 
 func hit(strength, angle):
-	velocity = Vector2.UP.rotated(angle) * strength * 10
+	velocity = Vector2.UP.rotated(angle) * strength
 	_kill_streak = 0
 	world.start_game()
 

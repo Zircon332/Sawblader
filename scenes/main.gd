@@ -4,6 +4,7 @@ extends Node2D
 enum GAME_STATES {START, PLAY, END}
 
 onready var spawner = $Spawner
+onready var _camera = $ShakableCamera
 
 var game_state = GAME_STATES.START
 var time_elapsed = 0
@@ -39,5 +40,22 @@ func add_score(points):
 
 
 func _on_Player_dead():
+	_camera.shake(50)
 	game_state = GAME_STATES.END
 	$UI/EndScreen.visible = true
+
+
+func _on_Player_swung(strength):
+	_camera.shake(min(strength, 100))
+
+
+func _on_Saw_bounced():
+	_camera.shake(5)
+
+
+func _on_Spawner_spawned(entity):
+	entity.connect("dead", self, "_on_Slime_dead")
+
+
+func _on_Slime_dead():
+	_camera.shake(3)

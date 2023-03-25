@@ -1,6 +1,8 @@
 extends Path2D
 
 
+signal spawned(entity)
+
 const entityScene := preload("res://entities/slime/slime.tscn")
 
 var pack_size = 1
@@ -23,6 +25,7 @@ func spawn(pos: Vector2) -> void:
 	entity.global_position = pos
 	context.add_child(entity)
 	entity.spawn()
+	emit_signal("spawned", entity)
 
 
 func _offset_position(pos: Vector2) -> Vector2:
