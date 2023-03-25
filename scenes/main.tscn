@@ -34,17 +34,17 @@ text = "Sawblader"
 scroll_active = false
 
 [node name="Text1" type="RichTextLabel" parent="UI/StartScreen"]
-margin_left = 50.0
-margin_top = 434.0
-margin_right = 153.0
-margin_bottom = 454.0
+margin_left = 92.0
+margin_top = 91.0
+margin_right = 195.0
+margin_bottom = 111.0
 text = "WASD to move"
 
 [node name="Text2" type="RichTextLabel" parent="UI/StartScreen"]
-margin_left = 49.0
-margin_top = 457.0
-margin_right = 159.0
-margin_bottom = 477.0
+margin_left = 91.0
+margin_top = 114.0
+margin_right = 201.0
+margin_bottom = 134.0
 rect_min_size = Vector2( 0, 20 )
 text = "LMB to swing"
 
@@ -69,6 +69,13 @@ margin_top = 13.0
 margin_right = 38.0
 margin_bottom = 27.0
 text = "00:00"
+
+[node name="Score" type="Label" parent="UI/HUD"]
+margin_left = 448.0
+margin_top = 13.0
+margin_right = 484.0
+margin_bottom = 27.0
+text = "0"
 
 [node name="Spawner" parent="." instance=ExtResource( 1 )]
 position = Vector2( 73.1666, 47.4188 )
