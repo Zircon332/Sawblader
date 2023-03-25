@@ -43,7 +43,8 @@ func bounce():
 
 
 func hit(strength, angle):
-	velocity = Vector2.UP.rotated(angle) * strength
+	var speed = pow(strength, 2) * 0.0001
+	velocity = Vector2.UP.rotated(angle) * speed
 	_kill_streak = 0
 	emit_signal("hit", strength)
 	world.start_game()
