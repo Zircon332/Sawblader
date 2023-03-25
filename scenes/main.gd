@@ -46,7 +46,7 @@ func _on_Player_dead():
 
 
 func _on_Player_swung(strength):
-	_camera.shake(min(strength, 100))
+	_camera.shake(min(float(strength) / 100, 100))
 
 
 func _on_Saw_bounced():
