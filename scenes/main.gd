@@ -20,6 +20,7 @@ func start_game():
 		game_state = GAME_STATES.PLAY
 		spawner.start_spawn()
 		$UI/StartScreen.visible = false
+		$UI/HUD.visible = true
 
 
 func _process(delta):
@@ -36,6 +37,8 @@ func _physics_process(delta):
 			time_elapsed += delta
 			$UI/HUD.set_time(time_elapsed)
 			spawner.set_pack_size(time_elapsed / 2)
+			var player = $Player
+			$UI/HUD/Strength/Text.text = str(int(player._strength))
 			
 		GAME_STATES.END:
 			if Input.is_action_just_pressed("swing"):

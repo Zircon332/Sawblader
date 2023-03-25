@@ -1,18 +1,29 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://spawner/spawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main.gd" type="Script" id=2]
+[ext_resource path="res://assets/themes/main_theme.tres" type="Theme" id=3]
 [ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/saw/saw.tscn" type="PackedScene" id=5]
 [ext_resource path="res://entities/wall/wall.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/background.png" type="Texture" id=7]
 [ext_resource path="res://scenes/hud.gd" type="Script" id=8]
 [ext_resource path="res://misc/shakable_camera.gd" type="Script" id=9]
+[ext_resource path="res://assets/font/kaph-font/Kaph-1G1eM.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://assets/themes/title_text.tres" type="Theme" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="."]
+position = Vector2( -60, -24 )
+scale = Vector2( 1.12533, 1.12533 )
 z_index = -1
 texture = ExtResource( 7 )
 centered = false
@@ -22,29 +33,32 @@ centered = false
 [node name="StartScreen" type="Control" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 
 [node name="Title" type="RichTextLabel" parent="UI/StartScreen"]
-margin_left = 32.0
-margin_top = 33.0
-margin_right = 106.0
-margin_bottom = 51.0
+margin_left = 327.0
+margin_top = 109.0
+margin_right = 638.0
+margin_bottom = 161.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource( 3 )
+custom_fonts/normal_font = SubResource( 1 )
 text = "Sawblader"
 scroll_active = false
 
 [node name="Text1" type="RichTextLabel" parent="UI/StartScreen"]
-margin_left = 92.0
-margin_top = 91.0
-margin_right = 195.0
-margin_bottom = 111.0
+margin_left = 347.0
+margin_top = 373.0
+margin_right = 608.0
+margin_bottom = 409.0
 text = "WASD to move"
 
 [node name="Text2" type="RichTextLabel" parent="UI/StartScreen"]
-margin_left = 91.0
-margin_top = 114.0
-margin_right = 201.0
-margin_bottom = 134.0
+margin_left = 354.0
+margin_top = 423.0
+margin_right = 615.0
+margin_bottom = 462.0
 rect_min_size = Vector2( 0, 20 )
 text = "LMB to swing"
 
@@ -52,35 +66,55 @@ text = "LMB to swing"
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -20.0
+margin_top = 20.0
 margin_right = 20.0
-margin_bottom = 40.0
+margin_bottom = 60.0
+theme = ExtResource( 3 )
 script = ExtResource( 8 )
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/HUD"]
+[node name="StopwatchLabel" type="Label" parent="UI/HUD"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -20.0
-margin_right = 20.0
-margin_bottom = 40.0
-
-[node name="StopwatchLabel" type="Label" parent="UI/HUD/CenterContainer"]
-margin_left = 2.0
-margin_top = 13.0
-margin_right = 38.0
-margin_bottom = 27.0
+margin_left = -71.5
+margin_right = 71.5
+margin_bottom = 47.0
+size_flags_horizontal = 3
 text = "00:00"
+align = 1
+valign = 1
 
 [node name="Score" type="Label" parent="UI/HUD"]
-margin_left = 451.0
-margin_top = 12.0
-margin_right = 487.0
-margin_bottom = 26.0
+margin_left = -417.0
+margin_top = 7.0
+margin_right = -378.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( 39, 33 )
+theme = ExtResource( 11 )
 text = "0"
+
+[node name="Strength" type="Panel" parent="UI/HUD"]
+margin_left = -89.0
+margin_top = 442.0
+margin_right = 125.0
+margin_bottom = 506.0
+
+[node name="Text" type="Label" parent="UI/HUD/Strength"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 3.0
+margin_bottom = 3.0
+rect_pivot_offset = Vector2( 39, 33 )
+size_flags_horizontal = 3
+theme = ExtResource( 11 )
+text = "0"
+align = 1
+valign = 1
 
 [node name="EndScreen" type="Control" parent="UI"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 
 [node name="Text3" type="RichTextLabel" parent="UI/EndScreen"]
 anchor_left = 0.5
@@ -109,10 +143,10 @@ position = Vector2( 73.1666, 47.4188 )
 scale = Vector2( 0.817454, 0.764396 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 282, 285 )
+position = Vector2( 391, 285 )
 
 [node name="Saw" parent="." instance=ExtResource( 5 )]
-position = Vector2( 655, 267 )
+position = Vector2( 582, 267 )
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -129,7 +163,7 @@ collision_layer = 0
 collision_mask = 3
 
 [node name="Wall3" parent="Walls" instance=ExtResource( 6 )]
-position = Vector2( 587, -173 )
+position = Vector2( 585, -175 )
 scale = Vector2( -120.19, -17.5083 )
 collision_layer = 0
 collision_mask = 3
