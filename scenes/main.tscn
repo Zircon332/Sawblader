@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://spawner/spawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://entities/wall/wall.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/background.png" type="Texture" id=7]
 [ext_resource path="res://scenes/hud.gd" type="Script" id=8]
+[ext_resource path="res://misc/shakable_camera.gd" type="Script" id=9]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -115,3 +116,8 @@ position = Vector2( 542, 715 )
 scale = Vector2( -87.51, -17.5083 )
 collision_layer = 0
 collision_mask = 3
+
+[node name="ShakableCamera" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+script = ExtResource( 9 )
