@@ -10,6 +10,7 @@ onready var _player = $Player
 onready var _audio_metal = $AudioStreamPlayer2D
 onready var _audio_freeze = $AudioStreamPlayer2D2
 onready var _audio_splat = $AudioStreamPlayer2D3
+onready var _audio_bounce = $AudioStreamPlayer2D4
 
 var game_state = GAME_STATES.START
 var time_elapsed = 0
@@ -68,7 +69,7 @@ func _on_Player_dead():
 
 func _on_Saw_bounced():
 	_camera.shake(5)
-	_audio_metal.play()
+	_audio_bounce.play()
 
 
 func _on_Spawner_spawned(entity):
