@@ -43,6 +43,10 @@ func start_spawn():
 	_timer.start()
 
 
+func stop_spawn():
+	_timer.stop()
+
+
 func set_spawn_interval(interval):
 	_timer.wait_time = interval
 

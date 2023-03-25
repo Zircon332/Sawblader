@@ -145,7 +145,11 @@ anchor_mode = 0
 current = true
 script = ExtResource( 9 )
 
+[node name="FreezeTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="spawned" from="Spawner" to="." method="_on_Spawner_spawned"]
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
-[connection signal="swung" from="Player" to="." method="_on_Player_swung"]
 [connection signal="bounced" from="Saw" to="." method="_on_Saw_bounced"]
+[connection signal="hit" from="Saw" to="." method="_on_Saw_hit"]
+[connection signal="timeout" from="FreezeTimer" to="." method="_on_FreezeTimer_timeout"]

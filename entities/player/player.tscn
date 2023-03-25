@@ -118,7 +118,7 @@ radius = 18.0278
 [sub_resource type="CircleShape2D" id=21]
 radius = 38.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["entities"]]
 collision_mask = 0
 script = ExtResource( 1 )
 

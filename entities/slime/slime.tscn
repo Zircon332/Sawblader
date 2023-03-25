@@ -38,7 +38,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[node name="Slime" type="Area2D" groups=["enemy"]]
+[node name="Slime" type="Area2D" groups=["enemy", "entities"]]
 collision_layer = 4
 script = ExtResource( 1 )
 

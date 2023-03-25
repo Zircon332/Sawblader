@@ -11,12 +11,19 @@ export(float) var spread := 30
 var direction := Vector2.UP
 var size := 3
 
+var _frozen = false
+
+onready var _animation_player = $AnimationPlayer
+
 
 func _ready():
 	rotation = rand_range(0, TAU)
 
 
 func _physics_process(delta) -> void:
+	if _frozen:
+		return
+	
 	position += delta * speed * direction
 
 
@@ -51,3 +58,13 @@ func die(dir):
 func _on_Slime_body_entered(body):
 	if body.has_method("die"):
 		body.die()
+
+
+func freeze():
+	_animation_player.stop(false)
+	_frozen = true
+
+
+func unfreeze():
+	_animation_player.play()
+	_frozen = false

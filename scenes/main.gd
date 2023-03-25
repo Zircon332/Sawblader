@@ -5,10 +5,14 @@ enum GAME_STATES {START, PLAY, END}
 
 onready var spawner = $Spawner
 onready var _camera = $ShakableCamera
+onready var _freeze_timer = $FreezeTimer
+onready var _player = $Player
 
 var game_state = GAME_STATES.START
 var time_elapsed = 0
 var score = 0
+
+var _frozen = false
 
 
 func start_game():
@@ -16,6 +20,11 @@ func start_game():
 		game_state = GAME_STATES.PLAY
 		spawner.start_spawn()
 		$UI/StartScreen.visible = false
+
+
+func _process(delta):
+	if _frozen:
+		_camera.shake(0.4)
 
 
 func _physics_process(delta):
@@ -45,10 +54,6 @@ func _on_Player_dead():
 	$UI/EndScreen.visible = true
 
 
-func _on_Player_swung(strength):
-	_camera.shake(min(float(strength) / 100, 100))
-
-
 func _on_Saw_bounced():
 	_camera.shake(5)
 
@@ -59,3 +64,31 @@ func _on_Spawner_spawned(entity):
 
 func _on_Slime_dead():
 	_camera.shake(3)
+
+
+func _on_Saw_hit(strength):
+	_camera.shake(min(float(strength) / 100, 100))
+	
+	if strength < _player.max_strength * 0.67:
+		return
+	
+	_freeze_timer.wait_time = lerp(0, 1, float(strength) / _player.max_strength)
+	var entities = get_tree().get_nodes_in_group("entities")
+	
+	for ent in entities:
+		ent.freeze()
+		
+	spawner.stop_spawn()
+	
+	_freeze_timer.start()
+	_frozen = true
+
+
+func _on_FreezeTimer_timeout():
+	var entities = get_tree().get_nodes_in_group("entities")
+	
+	for ent in entities:
+		ent.unfreeze()
+	
+	spawner.start_spawn()
+	_frozen = false

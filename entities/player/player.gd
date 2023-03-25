@@ -8,12 +8,14 @@ enum State {
 	NORMAL,
 	CHARGE,
 	SWING,
+	FROZEN,
 }
 
 const BloodScene = preload("res://particles/blood_radial.tscn")
 
 export(int) var speed = 200
-export(int) var strength_increase_rate = 1000
+export(int) var strength_increase_rate = 3333
+export(int) var max_strength = 10000
 
 var _velocity = Vector2()
 var _state = State.NORMAL
@@ -25,6 +27,9 @@ onready var _hitbox = $HitBox
 
 
 func _physics_process(delta):
+	if _state == State.FROZEN:
+		return
+	
 	_handle_swing_input()
 	
 	match _state:
@@ -35,7 +40,7 @@ func _physics_process(delta):
 			_look_at_mouse()
 		
 		State.CHARGE:
-			_strength += strength_increase_rate * delta
+			_strength = min(_strength + strength_increase_rate * delta, max_strength)
 			_handle_pre_swing()
 			_look_at_mouse()
 		
@@ -81,9 +86,9 @@ func _handle_swing_input():
 
 
 func _handle_pre_swing():
-	if _strength >= 2000:
+	if _strength >= max_strength * 0.67:
 		_sprite.frame = 2
-	elif _strength >= 1000:
+	elif _strength >= max_strength * 0.33:
 		_sprite.frame = 1
 	else:
 		_sprite.frame = 0
@@ -117,3 +122,12 @@ func die():
 	
 	emit_signal("dead")
 	queue_free()
+
+
+func freeze():
+	_state = State.FROZEN
+	_sprite.stop()
+
+
+func unfreeze():
+	_sprite.playing = true
