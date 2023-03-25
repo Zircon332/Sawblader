@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://spawner/spawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main.gd" type="Script" id=2]
+[ext_resource path="res://entities/slime/slime.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/saw/saw.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/wall/wall.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -9,3 +13,30 @@ script = ExtResource( 2 )
 [node name="Spawner" parent="." instance=ExtResource( 1 )]
 position = Vector2( 178.624, 145.14 )
 scale = Vector2( 1.46971, 1.34607 )
+
+[node name="Slime" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1230, 291 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 509, 615 )
+
+[node name="Saw" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1140, 573 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 1, 503 )
+scale = Vector2( 10.8907, -54.9909 )
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 1596, 500 )
+scale = Vector2( 9.87083, -504.169 )
+
+[node name="Wall3" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 979, -131 )
+scale = Vector2( -120.19, -17.5083 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 913, 1008 )
+scale = Vector2( -120.19, -17.5083 )
