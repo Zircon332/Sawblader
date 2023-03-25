@@ -4,15 +4,20 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -161, -167, 0, 0, 0, 0, -150, 754, 0, 0, 0, 0, 1240, 743, 0, 0, 0, 0, 1242, -168, 0, 0, 0, 0, -161, -168, 0, 0, 0, 0, -161, -167 )
+"points": PoolVector2Array( 0, 0, 0, 0, -161, -167, 0, 0, 0, 0, -161.681, 756.913, 0, 0, 0, 0, 1242.68, 751.087, 0, 0, 0, 0, 1242, -168, 0, 0, 0, 0, -161, -168, 0, 0, 0, 0, -161, -167 )
 }
 
 [node name="Spawner" type="Path2D"]
-position = Vector2( 75.918, 62.0369 )
-scale = Vector2( 0.831789, 0.85141 )
+position = Vector2( 178.279, 149.681 )
+scale = Vector2( 1.46757, 1.3731 )
 curve = SubResource( 1 )
 script = ExtResource( 1 )
 
 [node name="SpawnPoint" type="PathFollow2D" parent="."]
 position = Vector2( -161, -167 )
-rotation = 1.55886
+rotation = 1.57154
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

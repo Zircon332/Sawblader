@@ -5,6 +5,7 @@ const entityScene := preload("res://entities/slime/slime.tscn")
 
 onready var context := get_parent()
 
+onready var _timer := $Timer
 onready var _rng := RandomNumberGenerator.new()
 onready var _spawn_point := $SpawnPoint
 
@@ -27,3 +28,15 @@ func _offset_position(pos: Vector2) -> Vector2:
 	var direction := Vector2.RIGHT.rotated(angle)
 	var vector := direction * randf()
 	return pos + vector
+
+
+func _on_Timer_timeout():
+	spawn_pack(1)
+
+
+func start_spawn():
+	_timer.start()	
+
+
+func set_spawn_interval(interval):
+	_timer.wait_time = interval
