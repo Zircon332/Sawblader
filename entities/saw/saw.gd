@@ -6,6 +6,8 @@ var _friction = 0.01
 var rotation_speed = 2
 var velocity = Vector2.ONE * 0
 
+var _kill_streak = 0
+
 onready var _sprite = $Sawblade
 
 
@@ -33,10 +35,14 @@ func bounce():
 
 func hit(strength, angle):
 	velocity = Vector2.UP.rotated(angle) * strength * 10
-
+	_kill_streak = 0
 
 func kill_enemy():
 	var areas = $Area2D.get_overlapping_areas()
 	for area in areas:
 		if area.is_in_group('enemy'):
 			area.die(global_position.direction_to(area.global_position))
+			_kill_streak += 1
+			
+			var world = get_viewport().get_node("Main")
+			world.add_score(_kill_streak)
