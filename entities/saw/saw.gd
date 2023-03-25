@@ -39,4 +39,8 @@ func kill_enemy():
 	var areas = $Area2D.get_overlapping_areas()
 	for area in areas:
 		if area.is_in_group('enemy'):
-			area.die()
+			var dir = velocity.normalized()
+			if dir == Vector2.ZERO:
+				dir = Vector2.RIGHT.rotated(rand_range(0, TAU))
+				
+			area.die(dir)

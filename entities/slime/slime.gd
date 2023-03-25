@@ -1,6 +1,8 @@
 extends Area2D
 
 
+const BloodParticles = preload("res://particles/blood.tscn")
+
 export(int) var speed := 100
 export(float) var spread := 30
 
@@ -30,7 +32,12 @@ func _on_VisibilityNotifier2D_viewport_exited(viewport):
 	queue_free()
 
 
-func die():
+func die(dir):
+	var world = get_viewport().get_node("Main")
+	var blood = BloodParticles.instance()
+	blood.global_position = global_position
+	blood.rotation = dir.angle()
+	world.add_child(blood)
 	queue_free()
 
 

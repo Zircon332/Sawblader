@@ -20,7 +20,7 @@ scale_random = 0.25
 color = Color( 0.909804, 0.172549, 0.4, 1 )
 
 [node name="Blood" type="Particles2D"]
-position = Vector2( 227, 127 )
+z_index = -1
 emitting = false
 amount = 30
 lifetime = 600.0

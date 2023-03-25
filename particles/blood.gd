@@ -2,7 +2,7 @@ extends Particles2D
 
 
 func _ready():
-	get_tree().create_timer(1).connect("timeout", self, "_on_Timer_timeout")
+	get_tree().create_timer(60).connect("timeout", self, "_on_Timer_timeout")
 	emitting = true
 
 
