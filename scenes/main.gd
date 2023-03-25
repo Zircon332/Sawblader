@@ -27,11 +27,17 @@ func _physics_process(delta):
 			$UI/HUD.set_time(time_elapsed)
 			spawner.set_pack_size(time_elapsed / 2)
 			
-			
 		GAME_STATES.END:
-			pass
+			if Input.is_action_just_pressed("swing"):
+				var game_scene = load("res://scenes/main.tscn")
+				get_tree().change_scene_to(game_scene)
 
 
 func add_score(points):
 	score += points
 	$UI/HUD.set_score(score)
+
+
+func _on_Player_dead():
+	game_state = GAME_STATES.END
+	$UI/EndScreen.visible = true
