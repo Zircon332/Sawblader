@@ -10,6 +10,8 @@ enum State {
 	SWING,
 }
 
+const BloodScene = preload("res://particles/blood_radial.tscn")
+
 export(int) var speed = 200
 export(int) var strength_increase_rate = 1000
 
@@ -108,5 +110,10 @@ func _on_HitBox_body_entered(body):
 
 
 func die():
+	var world = get_viewport().get_node("Main")
+	var blood = BloodScene.instance()
+	blood.global_position = global_position
+	world.add_child(blood)
+	
 	emit_signal("dead")
 	queue_free()
