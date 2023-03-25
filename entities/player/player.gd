@@ -14,7 +14,7 @@ enum State {
 const BloodScene = preload("res://particles/blood_radial.tscn")
 
 export(int) var speed = 200
-export(int) var strength_increase_rate = 3333
+export(int) var strength_increase_rate = 5000
 export(int) var max_strength = 10000
 
 var _velocity = Vector2()
