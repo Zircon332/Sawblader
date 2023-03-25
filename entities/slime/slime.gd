@@ -10,6 +10,10 @@ var direction := Vector2.UP
 var size := 3
 
 
+func _ready():
+	rotation = rand_range(0, TAU)
+
+
 func _physics_process(delta) -> void:
 	position += delta * speed * direction
 
