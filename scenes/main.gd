@@ -68,6 +68,7 @@ func _on_Player_dead():
 
 func _on_Saw_bounced():
 	_camera.shake(5)
+	_audio_metal.play()
 
 
 func _on_Spawner_spawned(entity):
