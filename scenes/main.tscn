@@ -11,32 +11,32 @@
 script = ExtResource( 2 )
 
 [node name="Spawner" parent="." instance=ExtResource( 1 )]
-position = Vector2( 178.624, 145.14 )
-scale = Vector2( 1.46971, 1.34607 )
+position = Vector2( 73.1666, 47.4188 )
+scale = Vector2( 0.817454, 0.764396 )
 
 [node name="Slime" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1230, 291 )
+position = Vector2( 701, 311 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 509, 615 )
+position = Vector2( 291, 307 )
 
 [node name="Saw" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1140, 573 )
+position = Vector2( 580, 432 )
 
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="Wall" parent="Walls" instance=ExtResource( 6 )]
-position = Vector2( 1, 503 )
-scale = Vector2( 10.8907, -54.9909 )
+position = Vector2( -407, 250 )
+scale = Vector2( 40.7707, -54.9909 )
 
 [node name="Wall2" parent="Walls" instance=ExtResource( 6 )]
-position = Vector2( 1596, 500 )
-scale = Vector2( 9.87083, -504.169 )
+position = Vector2( 1425, 320 )
+scale = Vector2( 46.5856, -58.0522 )
 
 [node name="Wall3" parent="Walls" instance=ExtResource( 6 )]
-position = Vector2( 979, -131 )
+position = Vector2( 587, -173 )
 scale = Vector2( -120.19, -17.5083 )
 
 [node name="Wall4" parent="Walls" instance=ExtResource( 6 )]
-position = Vector2( 913, 1008 )
-scale = Vector2( -120.19, -17.5083 )
+position = Vector2( 542, 715 )
+scale = Vector2( -87.51, -17.5083 )

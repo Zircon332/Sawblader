@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/slime.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 50.4876
+radius = 23.0
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -45,6 +45,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.453125, 0.453125 )
 texture = ExtResource( 2 )
 hframes = 6
 

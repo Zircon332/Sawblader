@@ -4,7 +4,7 @@ extends KinematicBody2D
 var _friction = 0.01
 
 var rotation_speed = 2
-var velocity = Vector2.ONE * 1000
+var velocity = Vector2.ONE * 100000
 
 onready var _sprite = $Sawblade
 
