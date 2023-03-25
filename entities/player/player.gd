@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 signal swung(strength)
+signal dead
 
 enum State {
 	NORMAL,
@@ -103,3 +104,8 @@ func _on_AnimatedSprite_animation_finished():
 func _on_HitBox_body_entered(body):
 	_hitbox.set_deferred("monitoring", false)
 	body.hit(_strength, _sprite.rotation)
+
+
+func die():
+	emit_signal("dead")
+	queue_free()

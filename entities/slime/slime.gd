@@ -32,3 +32,8 @@ func _on_VisibilityNotifier2D_viewport_exited(viewport):
 
 func die():
 	queue_free()
+
+
+func _on_Slime_body_entered(body):
+	if body.has_method("die"):
+		body.die()
