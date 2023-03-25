@@ -71,7 +71,7 @@ func _handle_swing_input():
 		_sprite.stop()
 	elif Input.is_action_just_released("swing"):
 		_state = State.SWING
-		_hitbox.monitoring = true
+		_hitbox.set_deferred("monitoring", true)
 		_sprite.play("swing")
 		emit_signal("swung", _strength)
 
@@ -95,10 +95,11 @@ func _look_at_mouse():
 func _on_AnimatedSprite_animation_finished():
 	match _sprite.animation:
 		"swing":
-			_hitbox.monitoring = false
+			_hitbox.set_deferred("monitoring", false)
 			_sprite.play("run")
 			_state = State.NORMAL
 
 
 func _on_HitBox_body_entered(body):
+	_hitbox.set_deferred("monitoring", false)
 	body.hit(_strength, _sprite.rotation)
