@@ -9,10 +9,6 @@ onready var _rng := RandomNumberGenerator.new()
 onready var _spawn_point := $SpawnPoint
 
 
-func _physics_process(delta):
-	spawn_pack(1)
-
-
 func spawn_pack(pack_size:int = 4) -> void:
 	for _i in range(pack_size):
 		_spawn_point.unit_offset = _rng.randf()
