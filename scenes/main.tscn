@@ -59,15 +59,23 @@ position = Vector2( 577, 445 )
 [node name="Wall" parent="Walls" instance=ExtResource( 6 )]
 position = Vector2( -407, 250 )
 scale = Vector2( 40.7707, -54.9909 )
+collision_layer = 0
+collision_mask = 3
 
 [node name="Wall2" parent="Walls" instance=ExtResource( 6 )]
 position = Vector2( 1425, 320 )
 scale = Vector2( 46.5856, -58.0522 )
+collision_layer = 0
+collision_mask = 3
 
 [node name="Wall3" parent="Walls" instance=ExtResource( 6 )]
 position = Vector2( 587, -173 )
 scale = Vector2( -120.19, -17.5083 )
+collision_layer = 0
+collision_mask = 3
 
 [node name="Wall4" parent="Walls" instance=ExtResource( 6 )]
 position = Vector2( 542, 715 )
 scale = Vector2( -87.51, -17.5083 )
+collision_layer = 0
+collision_mask = 3
