@@ -3,6 +3,8 @@ extends Path2D
 
 const entityScene := preload("res://entities/slime/slime.tscn")
 
+var pack_size = 1
+
 onready var context := get_parent()
 
 onready var _timer := $Timer
@@ -31,12 +33,16 @@ func _offset_position(pos: Vector2) -> Vector2:
 
 
 func _on_Timer_timeout():
-	spawn_pack(1)
+	spawn_pack(pack_size)
 
 
 func start_spawn():
-	_timer.start()	
+	_timer.start()
 
 
 func set_spawn_interval(interval):
 	_timer.wait_time = interval
+
+
+func set_pack_size(size):
+	pack_size = size
