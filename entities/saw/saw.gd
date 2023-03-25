@@ -52,7 +52,7 @@ func hit(strength, angle):
 func kill_enemy():
 	var areas = $Area2D.get_overlapping_areas()
 	for area in areas:
-		if area.is_in_group('enemy') and velocity.length() > 10:
+		if area.is_in_group('enemy') and velocity.length() > 100:
 			area.die(global_position.direction_to(area.global_position))
 			_kill_streak += 1
 			
