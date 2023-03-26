@@ -65,6 +65,7 @@ func _on_Player_dead():
 	game_state = GAME_STATES.END
 	$UI/EndScreen.visible = true
 	$Saw.queue_free()
+	_audio_splat.play()
 
 
 func _on_Saw_bounced():
