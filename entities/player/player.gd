@@ -78,12 +78,12 @@ func _handle_run_animation():
 
 
 func _handle_swing_input():
-	if Input.is_action_just_pressed("swing"):
+	if Input.is_action_just_pressed("swing") and _state == State.NORMAL:
 		_state = State.CHARGE
 		_strength = 0
 		_sprite.animation = "pre-swing"
 		_sprite.stop()
-	elif Input.is_action_just_released("swing"):
+	elif Input.is_action_just_released("swing") and _state == State.CHARGE:
 		_state = State.SWING
 		_hitbox.set_deferred("monitoring", true)
 		_sprite.play("swing")
