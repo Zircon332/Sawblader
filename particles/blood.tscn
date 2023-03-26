@@ -5,7 +5,7 @@
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 1
-emission_sphere_radius = 10.0
+emission_sphere_radius = 15.0
 flag_disable_z = true
 spread = 20.0
 gravity = Vector3( 0, 0, 0 )
@@ -17,7 +17,7 @@ damping = 4000.0
 damping_random = 0.51
 scale = 0.01
 scale_random = 0.25
-color = Color( 0.658824, 0.313726, 0.419608, 0.454902 )
+color = Color( 0.658824, 0.313726, 0.419608, 1 )
 
 [node name="Blood" type="Particles2D"]
 z_index = -1

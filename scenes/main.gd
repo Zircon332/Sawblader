@@ -45,7 +45,7 @@ func _physics_process(delta):
 		GAME_STATES.PLAY:
 			time_elapsed += delta
 			$UI/HUD.set_time(time_elapsed)
-			spawner.set_pack_size(time_elapsed / 2)
+			spawner.set_pack_size(10 + time_elapsed / 5)
 			var player = $Player
 			$UI/HUD/Strength/Text.text = str(int(player._strength))
 			
