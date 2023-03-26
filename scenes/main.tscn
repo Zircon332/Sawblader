@@ -17,8 +17,8 @@
 [ext_resource path="res://assets/sfx/deep-thumps-30606.mp3" type="AudioStream" id=15]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
-outline_size = 3
+size = 60
+outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
 
@@ -40,16 +40,17 @@ centered = false
 [node name="StartScreen" type="Control" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 0.381122
+margin_bottom = 0.381104
 theme = ExtResource( 3 )
 
 [node name="Title" type="RichTextLabel" parent="UI/StartScreen"]
-margin_left = 327.0
-margin_top = 109.0
-margin_right = 638.0
-margin_bottom = 161.0
+margin_left = 243.0
+margin_top = 95.0
+margin_right = 721.0
+margin_bottom = 175.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 3 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "Sawblader"
 scroll_active = false
@@ -60,6 +61,13 @@ margin_top = 373.0
 margin_right = 608.0
 margin_bottom = 409.0
 text = "WASD to move"
+
+[node name="Text3" type="RichTextLabel" parent="UI/StartScreen"]
+margin_left = 283.0
+margin_top = 475.0
+margin_right = 672.0
+margin_bottom = 511.0
+text = "Hit the saw to start"
 
 [node name="Text2" type="RichTextLabel" parent="UI/StartScreen"]
 margin_left = 354.0
