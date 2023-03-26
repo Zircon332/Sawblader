@@ -16,10 +16,6 @@ var _frozen = false
 onready var _animation_player = $AnimationPlayer
 
 
-func _ready():
-	rotation = rand_range(0, TAU)
-
-
 func _physics_process(delta) -> void:
 	if _frozen:
 		return
@@ -35,6 +31,7 @@ func spawn() -> void:
 	)
 	
 	direction = position.direction_to(target)
+	rotation = direction.angle()
 
 
 func _on_VisibilityNotifier2D_screen_exited():
