@@ -105,13 +105,13 @@ animations = [ {
 radius = 21.0
 
 [sub_resource type="CircleShape2D" id=19]
-radius = 23.0217
+radius = 32.0156
 
 [sub_resource type="CircleShape2D" id=20]
-radius = 18.0278
+radius = 30.0
 
 [sub_resource type="CircleShape2D" id=21]
-radius = 38.0
+radius = 29.0
 
 [node name="Player" type="KinematicBody2D" groups=["entities"]]
 z_index = 1
@@ -132,15 +132,15 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( -49, -51 )
+position = Vector2( -34, -50 )
 shape = SubResource( 19 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( -21, -60 )
+position = Vector2( -1, -61 )
 shape = SubResource( 20 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( -3, -29 )
+position = Vector2( 38, -51 )
 shape = SubResource( 21 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
