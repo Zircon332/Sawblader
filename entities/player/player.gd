@@ -26,6 +26,11 @@ onready var _sprite = $AnimatedSprite
 onready var _hitbox = $HitBox
 
 
+func _process(delta):
+	var maxed = _state == State.CHARGE and _strength == max_strength
+	_sprite.position = Vector2.RIGHT.rotated(rand_range(0, TAU)) * 1 if maxed else Vector2.ZERO
+
+
 func _physics_process(delta):
 	if _state == State.FROZEN:
 		return
