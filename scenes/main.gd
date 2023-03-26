@@ -111,3 +111,10 @@ func _on_FreezeTimer_timeout():
 	
 	spawner.start_spawn()
 	_frozen = false
+
+
+func _on_DespawnZone_area_exited(area):
+	if not area or not area.is_in_group('enemy') or area.is_queued_for_deletion():
+		return
+	
+	area.queue_free()

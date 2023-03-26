@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://spawner/spawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/main.gd" type="Script" id=2]
@@ -21,6 +21,9 @@ size = 40
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 698, 426 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -150,6 +153,16 @@ fit_content_height = true
 position = Vector2( 73.1666, 47.4188 )
 scale = Vector2( 0.817454, 0.764396 )
 
+[node name="DespawnZone" type="Area2D" parent="."]
+position = Vector2( 479, 274 )
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DespawnZone"]
+position = Vector2( 27, 0 )
+shape = SubResource( 2 )
+
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 391, 285 )
 
@@ -203,6 +216,7 @@ stream = ExtResource( 14 )
 stream = ExtResource( 15 )
 
 [connection signal="spawned" from="Spawner" to="." method="_on_Spawner_spawned"]
+[connection signal="area_exited" from="DespawnZone" to="." method="_on_DespawnZone_area_exited"]
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 [connection signal="bounced" from="Saw" to="." method="_on_Saw_bounced"]
 [connection signal="hit" from="Saw" to="." method="_on_Saw_hit"]

@@ -34,14 +34,6 @@ func spawn() -> void:
 	rotation = direction.angle()
 
 
-func _on_VisibilityNotifier2D_screen_exited():
-	pass
-
-
-func _on_VisibilityNotifier2D_viewport_exited(viewport):
-	queue_free()
-
-
 func die(dir):
 	var world = get_viewport().get_node("Main")
 	var blood = BloodParticles.instance()
