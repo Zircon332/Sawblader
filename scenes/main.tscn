@@ -70,12 +70,12 @@ margin_bottom = 511.0
 text = "Hit the saw to start"
 
 [node name="Text2" type="RichTextLabel" parent="UI/StartScreen"]
-margin_left = 354.0
-margin_top = 423.0
-margin_right = 615.0
-margin_bottom = 462.0
+margin_left = 257.0
+margin_top = 426.0
+margin_right = 712.0
+margin_bottom = 457.0
 rect_min_size = Vector2( 0, 20 )
-text = "LMB to swing"
+text = "LMB to charge and swing"
 
 [node name="HUD" type="Control" parent="UI"]
 visible = false
