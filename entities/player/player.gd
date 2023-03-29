@@ -14,6 +14,7 @@ enum State {
 const BloodScene = preload("res://particles/blood_radial.tscn")
 
 export(int) var speed = 200
+export(int) var walk_speed = 100
 export(int) var strength_increase_rate = 5000
 export(int) var max_strength = 9999
 
@@ -24,6 +25,7 @@ var _strength = 0
 onready var world = get_viewport().get_node("Main")
 onready var _sprite = $AnimatedSprite
 onready var _hitbox = $HitBox
+onready var _speed = speed
 
 
 func _process(delta):
@@ -45,6 +47,9 @@ func _physics_process(delta):
 			_look_at_mouse()
 		
 		State.CHARGE:
+			_handle_movement()
+			_velocity = move_and_slide(_velocity)
+			
 			_strength = min(_strength + strength_increase_rate * delta, max_strength)
 			_handle_pre_swing()
 			_look_at_mouse()
@@ -65,7 +70,7 @@ func _handle_movement():
 	if Input.is_action_pressed("move_up"):
 		_velocity.y -= 1
 		
-	_velocity = _velocity.normalized() * speed
+	_velocity = _velocity.normalized() * _speed
 
 
 func _handle_run_animation():
@@ -81,6 +86,7 @@ func _handle_swing_input():
 	if Input.is_action_just_pressed("swing") and _state == State.NORMAL:
 		_state = State.CHARGE
 		_strength = 0
+		_speed = walk_speed
 		_sprite.animation = "pre-swing"
 		_sprite.stop()
 	elif Input.is_action_just_released("swing") and _state == State.CHARGE:
@@ -112,6 +118,7 @@ func _on_AnimatedSprite_animation_finished():
 			_hitbox.set_deferred("monitoring", false)
 			_sprite.play("run")
 			_state = State.NORMAL
+			_speed = speed
 
 
 func _on_HitBox_body_entered(body):
